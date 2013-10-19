@@ -22,6 +22,7 @@
       <div class="col-xs-3"></div>
     </div>
   </div>
+  <br/><br/><br/>
 </body>
 
 <template name='score'>
@@ -70,9 +71,10 @@
           <input type="text" id="username" class="form-control input-lg" placeholder="Please enter your last.fm username" size=40/>
         </div>
         <input type="submit" id="submit" value="Which will prevail?!" /> -->
+        {{#if intro}}
         <p>We will take your top 10 tracks on Last.fm, put them into EchoNote to see if they're on Spotify v Rdio.</p>
 
-        <p>May the best subscription service win!</p>
+        <p><b>May the best subscription service win!</b></p>
         <br/>
         <div class="input-group input-group-lg">
           <input type="text" id="username" class="form-control" placeholder="Enter your last.fm username">
@@ -80,7 +82,7 @@
             <button class="btn btn-default" id="submit" type="button">Which will prevail?!</button>
           </span>
         </div>
-
+        {{/if}}
      </div>
    </form> 
 </template>

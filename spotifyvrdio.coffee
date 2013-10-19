@@ -4,12 +4,19 @@ root = exports ? this
 # root.SPOTIFYS = new Meteor.Collection('spotifys')
 
 if Meteor.isClient
+  Session.set 'intro', true
+
   Template.hello.greeting = ->
     "Welcome to Spotify v. Rdio"
+
+  Template.hello.intro = ->
+    Session.get 'intro'
 
   Template.hello.events 
     "click #submit": (e,t) ->
       e.preventDefault()
+
+      Session.set 'intro', false
 
       ringBell = new buzz.sound "/sounds/bell.mp3"
       ringBell.play()
