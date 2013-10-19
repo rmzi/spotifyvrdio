@@ -63,9 +63,12 @@ if Meteor.isClient
               else
                 songs = JSON.parse(res.content).response.songs
                 if songs.length > 0
-                  console.log songs[0], "RDIO"
-                  RDIOS.push songs[0]
-                  rdio++
+                  console.log songs, "RDIO"
+                  
+                  for song in songs
+                    RDIOS.push song
+                  
+                  rdio += songs.length
                   console.log "Rdio: ", rdio
                   Session.set 'rdio', rdio
                   Session.set 'rdios', RDIOS
