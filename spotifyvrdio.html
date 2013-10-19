@@ -27,8 +27,27 @@
 
 <template name='score'>
     <div class='row'>
-      <div class='col-xs-6' id="rdio-count"><h1>{{rdio}}</h1></div>
-      <div class='col-xs-6' id="spotify-count"><h1>{{spotify}}</h1></div>
+
+      <div class='col-xs-6'>
+        <div id="spotify-count">
+        {{#if spotify}}
+          {{spotify}}
+        {{else}}
+          0
+        {{/if}}
+        </div>
+      </div>
+
+      <div class='col-xs-6'>
+        <div id="rdio-count">
+        {{#if rdio}}
+          {{rdio}}
+        {{else}}
+          0
+        {{/if}}
+        </div>
+      </div>
+
     </div>
 </template>
 
