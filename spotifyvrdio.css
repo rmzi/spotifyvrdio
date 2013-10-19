@@ -3,6 +3,12 @@ body{
   background: #FA3C3C;
 }
 
+p{
+  color: #FF9D9D;
+  text-align: left;
+  font-size: 18px;
+}
+
 #bell{
   position: relative;
   left: 50%;
@@ -28,6 +34,12 @@ h1, h2, h3, h4, h5{
   color: #fff;
 }
 
+#rdio-songs{
+  text-align: left;
+  margin-left: 100px;
+  color: #fff;
+}
+
 #spotify{
   float: right;
   margin-top: -80px;
@@ -40,5 +52,11 @@ h1, h2, h3, h4, h5{
   padding-right: 200px;
   font-size: 7em;
   font-weight: bold;
+  color: #fff;
+}
+
+#spotify-songs{
+  text-align: right;
+  margin-right: 100px;
   color: #fff;
 }

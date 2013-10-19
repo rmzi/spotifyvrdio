@@ -1,9 +1,14 @@
+root = exports ? this
+
+# root.RDIOS = new Meteor.Collection('rdios')
+# root.SPOTIFYS = new Meteor.Collection('spotifys')
+
 if Meteor.isClient
   Template.hello.greeting = ->
     "Welcome to Spotify v. Rdio"
 
   Template.hello.events 
-    "submit #user-form": (e,t) ->
+    "click #submit": (e,t) ->
       e.preventDefault()
 
       ringBell = new buzz.sound "/sounds/bell.mp3"
@@ -14,6 +19,8 @@ if Meteor.isClient
       
       spotify = 0
       rdio = 0
+      RDIOS = []
+      SPOTIFYS = []
 
       Meteor.call('fetchTopSongs', username, (err, res) ->
         if err?
@@ -32,11 +39,13 @@ if Meteor.isClient
                 console.log "Error in EchoNote call to Spotify", err
               else
                 songs = JSON.parse(res.content).response.songs
-                
                 if songs.length > 0
+                  console.log songs[0], 'SPOTIFY'
+                  SPOTIFYS.push songs[0]
                   spotify++
                   console.log "Spotify: ", spotify
                   Session.set 'spotify', spotify
+                  Session.set 'spotifys', SPOTIFYS
 
                 #console.log "Spotify Response: ", JSON.parse(res.content)
             )
@@ -46,11 +55,13 @@ if Meteor.isClient
                 console.log "Error in EchoNote call to Rdio", err
               else
                 songs = JSON.parse(res.content).response.songs
-
                 if songs.length > 0
+                  console.log songs[0], "RDIO"
+                  RDIOS.push songs[0]
                   rdio++
                   console.log "Rdio: ", rdio
                   Session.set 'rdio', rdio
+                  Session.set 'rdios', RDIOS
 
                 #console.log "Rdio Response: ", JSON.parse(res.content)
             )
@@ -59,8 +70,14 @@ if Meteor.isClient
   Template.score.rdio = ->
     Session.get 'rdio'
 
+  Template.score.rdio_songs = ->
+    Session.get 'rdios'
+
   Template.score.spotify = ->
     Session.get 'spotify'
+
+  Template.score.spotify_songs = ->
+    Session.get 'spotifys'
 
   Template.rdio.rendered = ->
     rdio = d3.select('#rdio')
