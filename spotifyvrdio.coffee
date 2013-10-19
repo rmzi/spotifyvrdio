@@ -36,6 +36,7 @@ if Meteor.isClient
                 if songs.length > 0
                   spotify++
                   console.log "Spotify: ", spotify
+                  Session.set 'spotify', spotify
 
                 #console.log "Spotify Response: ", JSON.parse(res.content)
             )
@@ -49,11 +50,17 @@ if Meteor.isClient
                 if songs.length > 0
                   rdio++
                   console.log "Rdio: ", rdio
+                  Session.set 'rdio', rdio
 
                 #console.log "Rdio Response: ", JSON.parse(res.content)
             )
       )
 
+  Template.score.rdio = ->
+    Session.get 'rdio'
+
+  Template.score.spotify = ->
+    Session.get 'spotify'
 
   Template.rdio.rendered = ->
     rdio = d3.select('#rdio')

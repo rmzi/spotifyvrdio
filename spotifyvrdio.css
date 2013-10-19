@@ -19,7 +19,15 @@ float: left;
 margin-left: 40px;
 }
 
+#rdio-count{
+  float: left;
+}
+
 #spotify{
 float: right;
 margin-right: 40px;
+}
+
+#spotify-count{
+  float: right;
 }

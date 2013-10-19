@@ -13,6 +13,9 @@
       <div class='col-xs-6'>{{> spotify}}</div>
       <div class='col-xs-6'>{{> rdio}}</div>
     </div>
+
+    {{> score}}
+    
     <div class='row'>
       <br/><br/>
       <div class="col-xs-3"></div>
@@ -21,6 +24,13 @@
     </div>
   </div>
 </body>
+
+<template name='score'>
+    <div class='row'>
+      <div class='col-xs-6' id="rdio-count"><h1>{{rdio}}</h1></div>
+      <div class='col-xs-6' id="spotify-count"><h1>{{spotify}}</h1></div>
+    </div>
+</template>
 
 <template name="hello">
   <h1>{{greeting}}</h1>
