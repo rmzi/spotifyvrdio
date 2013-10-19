@@ -5,50 +5,55 @@ if Meteor.isClient
   Template.hello.events 
     "submit #user-form": (e,t) ->
       e.preventDefault()
+
+      ringBell = new buzz.sound "/sounds/bell.mp3"
+      ringBell.play()
+
       username = t.find('#username').value
       console.log "You clicked the button, stuff is coming: "
       
       spotify = 0
       rdio = 0
 
-      Meteor.call('fetchTopSongs', username, (err, res) ->
-        if err?
-          console.log "Error: ", err
-        else
-          tracks = JSON.parse(res.content).toptracks.track
+      # Meteor.call('fetchTopSongs', username, (err, res) ->
+      #   if err?
+      #     console.log "Error: ", err
+      #   else
+      #     tracks = JSON.parse(res.content).toptracks.track
 
-          for track in tracks          
-            console.log "Searching for track: ", track.name
+      #     for track in tracks          
+      #       console.log "Searching for track: ", track.name
 
-            #track = tracks[2]
-            console.log "Currently searching for song: ", track
+      #       #track = tracks[2]
+      #       console.log "Currently searching for song: ", track
 
-            Meteor.call('fetchENSpotify', track, (err, res) ->
-              if err?
-                console.log "Error in EchoNote call to Spotify", err
-              else
-                songs = JSON.parse(res.content).response.songs
+      #       Meteor.call('fetchENSpotify', track, (err, res) ->
+      #         if err?
+      #           console.log "Error in EchoNote call to Spotify", err
+      #         else
+      #           songs = JSON.parse(res.content).response.songs
                 
-                if songs.length > 0
-                  spotify++
-                  console.log "Spotify: ", spotify
+      #           if songs.length > 0
+      #             spotify++
+      #             console.log "Spotify: ", spotify
 
-                #console.log "Spotify Response: ", JSON.parse(res.content)
-            )
+      #           #console.log "Spotify Response: ", JSON.parse(res.content)
+      #       )
 
-            Meteor.call('fetchENRdio', track, (err, res) ->
-              if err?
-                console.log "Error in EchoNote call to Rdio", err
-              else
-                songs = JSON.parse(res.content).response.songs
+      #       Meteor.call('fetchENRdio', track, (err, res) ->
+      #         if err?
+      #           console.log "Error in EchoNote call to Rdio", err
+      #         else
+      #           songs = JSON.parse(res.content).response.songs
 
-                if songs.length > 0
-                  rdio++
-                  console.log "Rdio: ", rdio
+      #           if songs.length > 0
+      #             rdio++
+      #             console.log "Rdio: ", rdio
 
-                #console.log "Rdio Response: ", JSON.parse(res.content)
-            )
-      )
+      #           #console.log "Rdio Response: ", JSON.parse(res.content)
+      #       )
+      # )
+
 
   Template.rdio.rendered = ->
     rdio = d3.select('#rdio')
