@@ -16,7 +16,8 @@ h1, h2, h3, h4, h5{
 
 #rdio{
   float: left;
-  margin-left: 40px;
+  margin-top: -80px;
+  margin-bottom: -80px;
 }
 
 #rdio-count{
@@ -29,7 +30,8 @@ h1, h2, h3, h4, h5{
 
 #spotify{
   float: right;
-  margin-right: 40px;
+  margin-top: -80px;
+  margin-bottom: -80px;
 }
 
 #spotify-count{
