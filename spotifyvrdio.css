@@ -32,6 +32,7 @@ h1, h2, h3, h4, h5{
   float: right;
   margin-top: -80px;
   margin-bottom: -80px;
+  margin-right: 15px;
 }
 
 #spotify-count{
