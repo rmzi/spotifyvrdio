@@ -1,1 +1,19 @@
 /* CSS declarations go here */
+body{
+  background: #FA3C3C;
+}
+
+#bell{
+  position: relative;
+  left: 50%;
+  margin-left: -58px;
+
+}
+
+#rdio{
+float: left;
+}
+
+#spotify{
+float: right;
+}

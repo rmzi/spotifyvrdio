@@ -1,12 +1,25 @@
 <head>
   <title>Spotify v. Rdio</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
 </head>
 
 <body>
-  {{> spotify}}
-  {{> bell}}
-  {{> rdio}}
-  {{> hello}}
+  <div class='container'>
+    <div class='row'>
+      <br/><br/>
+      {{> bell}}
+    </div>
+    <div class='row'>
+      <div class='col-xs-6'>{{> spotify}}</div>
+      <div class='col-xs-6'>{{> rdio}}</div>
+    </div>
+    <div class='row'>
+      <br/><br/>
+      <div class="col-xs-3"></div>
+      <div class="col-xs-6">{{> hello}}</div>
+      <div class="col-xs-3"></div>
+    </div>
+  </div>
 </body>
 
 <template name="hello">
