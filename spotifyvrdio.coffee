@@ -5,14 +5,14 @@ if Meteor.isClient
   Template.rdio.rendered = ->
     rdio = d3.select('#rdio')
 
-    rdio.select('g#Layer_1').attr
-        transform: "scale(0.5)"
+    # rdio.select('g#Layer_1').attr
+    #     transform: "scale(0.5)"
 
-    rdio.select('g#Layer_3').attr
-        transform: "scale(0.5)"
+    # rdio.select('g#Layer_3').attr
+    #     transform: "scale(0.5)"
 
-    rdio.select('g#Layer_4').attr
-        transform: "scale(0.5)"
+    # rdio.select('g#Layer_4').attr
+    #     transform: "scale(0.5)"
 
     console.log rdio,'rdio'
     #.transform(scale(0.5))
@@ -22,14 +22,14 @@ if Meteor.isClient
     console.log spotify, 'spotify'
     #.transform(scale(0.5))
 
-    spotify.select('g#Layer_1').attr
-        transform: "scale(0.5)"
+    # spotify.select('g#Layer_1').attr
+    #     transform: "scale(0.5)"
 
-    spotify.select('g#Layer_3').attr
-        transform: "scale(0.5)"
+    # spotify.select('g#Layer_3').attr
+    #     transform: "scale(0.5)"
 
-    spotify.select('g#Layer_4').attr
-        transform: "scale(0.5)"
+    # spotify.select('g#Layer_4').attr
+    #     transform: "scale(0.5)"
 
   Template.hello.events "click input": () ->
     Meteor.call('fetchTopSongs', "ramzalam", (err, res) ->
