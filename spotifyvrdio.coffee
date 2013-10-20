@@ -47,7 +47,7 @@ if Meteor.isClient
               else
                 songs = JSON.parse(res.content).response.songs
                 if songs.length > 0
-                  console.log songs[0], 'SPOTIFY'
+                  #console.log songs[0], 'SPOTIFY'
                   SPOTIFYS.push songs[0]
                   spotify++
                   console.log "Spotify: ", spotify
@@ -63,7 +63,7 @@ if Meteor.isClient
               else
                 songs = JSON.parse(res.content).response.songs
                 if songs.length > 0
-                  console.log songs[0], "RDIO"
+                  #console.log songs[0], "RDIO"
                   RDIOS.push songs[0]
                   rdio++
                   console.log "Rdio: ", rdio
